@@ -1,0 +1,72 @@
+Navigate to https://www.hyrtutorials.com/ and mouse hover to "Tutorials" menu and click "Dot Net" submenu
+package selepractice;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Mouse_Action_Assignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = new ChromeDriver();
+		String url = "https://www.hyrtutorials.com/";
+		driver.get(url);
+		
+		driver.manage().window().maximize();
+		Actions mouseAction = new Actions(driver);
+		
+		WebElement Tutorials = driver.findElement(By.xpath("//a[text() = 'Tutorials']"));
+		mouseAction.moveToElement(Tutorials).click().perform();
+		
+		WebElement dotNet = driver.findElement(By.xpath("//a[text () = 'Dot Net']"));
+		mouseAction.moveToElement(dotNet).click().perform();		
+
+	}
+
+}
+
+Navigate to https://www.saucedemo.com/, copy "standard_user" from "Accepted usernames are:" and paste it into Username text field, same way copy and paste the password in Password field and click Login.
+package selepractice;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Mouse_Action_Assignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = new ChromeDriver();
+		String url = "https://www.saucedemo.com/";
+		driver.get(url);
+		String userID = "user-name";
+		String user = "standard_user";
+		String passID = "password";
+		String passkey = "secret_sauce";
+		String buttonId = "login-button";
+		
+		
+		WebElement userName, password, loginButton;
+		
+		userName = driver.findElement(By.id(userID));
+		
+		Actions mouseAction = new Actions (driver);
+		mouseAction.moveToElement(userName).click().sendKeys(user).perform();
+		
+		password = driver.findElement(By.id(passID));
+		mouseAction.moveToElement(password).click().sendKeys(passkey).perform();
+		
+		loginButton = driver.findElement(By.id(buttonId));
+		mouseAction.click(loginButton).perform();
+	}
+
+}
+
+
