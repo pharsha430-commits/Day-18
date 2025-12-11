@@ -47,7 +47,7 @@ public class Mouse_Action_Assignment {
 		String url = "https://www.saucedemo.com/";
 		driver.get(url);
 		String userID = "user-name";
-		String user = "standard_user";
+		String user = "locked_out_user";
 		String passID = "password";
 		String passkey = "secret_sauce";
 		String buttonId = "login-button";
