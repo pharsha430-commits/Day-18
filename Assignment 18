@@ -46,27 +46,19 @@ public class Mouse_Action_Assignment {
 		WebDriver driver = new ChromeDriver();
 		String url = "https://www.saucedemo.com/";
 		driver.get(url);
-		String userID = "user-name";
-		String user = "locked_out_user";
-		String passID = "password";
-		String passkey = "secret_sauce";
-		String buttonId = "login-button";
 		
+		WebElement userText = driver.findElement(By.id("login_credentials"));
+		String users = userText.getText();
+		String username = users.split("\n")[1];
 		
-		WebElement userName, password, loginButton;
+		WebElement passwordText = driver.findElement(By.className("login_password"));
+		String pwdText = passwordText.getText();
+		String password = pwdText.split("\n")[1];
 		
-		userName = driver.findElement(By.id(userID));
-		
-		Actions mouseAction = new Actions (driver);
-		mouseAction.moveToElement(userName).click().sendKeys(user).perform();
-		
-		password = driver.findElement(By.id(passID));
-		mouseAction.moveToElement(password).click().sendKeys(passkey).perform();
-		
-		loginButton = driver.findElement(By.id(buttonId));
-		mouseAction.click(loginButton).perform();
+		driver.findElement(By.id("user-name")).sendKeys(username);
+		driver.findElement(By.id("password")).sendKeys(password);
+		driver.findElement(By.id("login-button")).click();
 	}
 
 }
-
 
